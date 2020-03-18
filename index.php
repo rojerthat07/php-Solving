@@ -8,31 +8,68 @@
 </head>
 <body>
     <?php
-    //This time no story, no theory. The examples below show you how to write function accum:
-    //Problem Link - https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/php
-    function accum($s) {
-        $finalOutput = "";
-    
-    
-        for($i = 0; $i != strlen($s);$i++,$j++){
-            for($j = 0 ;$j <= $i;$j++){
-                if($j > 0){
-                    $finalOutput .= strtolower($s[$i]) ;
-                } else {
-                    $finalOutput .= strtoupper($s[$i]);
+    //Who likes it?
+    //Problem Link - https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/php
+    function likes( $names ) {
+
+        define("text", "&nbsplikes this");
+        $holder = "";
+
+        if($names != null){
+            for($i = 0; $i < count($names); $i++){
+                if( count($names) == 1){
+                    $holder .= $names[$i] . " " ."likes this" ;
+                } else if(count($names) == 2){
+                    $holder .= $names[$i] ;
+                   if($i == 0){
+                    $holder .= " and ";
+                   }
+                   if($i == 1){
+                    $holder .= " like this";
+                   }
+                } else if(count($names) == 3){
+                    $holder .= $names[$i];
+                    if($i <= 0){
+                        $holder .= ", ";
+                    }
+                    if($i == 1){
+                        $holder .= " and ";
+                    }
+                    if($i == 2){
+                        $holder .= " like this";
+                       }
+                } else if(count($names) >= 4){
+                    $holder .= $names[$i];
+                    if($i <= 0){
+                        $holder .= ", ";
+                    }
+                    if($i == 1){
+                        $holder .= " and ". (count($names) - 2). " others like this";
+                    }
+                    if($i == 1){
+                    break;
+                    }
+
                 }
-            }
-            if($i != strlen($s) -1){
-                $finalOutput .= "-";
-            } 
-        }
-      
-       return $finalOutput;
-    }
-
-
-  accum('EvidjUnokmM');
+              
     
+               }
+        
+        }else {
+            $holder .= "no one likes this";
+        }
+   
+
+
+     echo $holder;
+
+       
+
+    }
+    
+
+
+    likes([ 'Alex', 'Jacob', 'Max','Michenne']);
     
     ?>
 
