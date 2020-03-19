@@ -8,69 +8,37 @@
 </head>
 <body>
     <?php
-    //Who likes it?
-    //Problem Link - https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/php
-    function likes( $names ) {
+    //Counting Duplicates
+    //Problem Link - https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/php
 
-        define("text", "&nbsplikes this");
-        $holder = "";
 
-        if($names != null){
-            for($i = 0; $i < count($names); $i++){
-                if( count($names) == 1){
-                    $holder .= $names[$i] . " " ."likes this" ;
-                } else if(count($names) == 2){
-                    $holder .= $names[$i] ;
-                   if($i == 0){
-                    $holder .= " and ";
-                   }
-                   if($i == 1){
-                    $holder .= " like this";
-                   }
-                } else if(count($names) == 3){
-                    $holder .= $names[$i];
-                    if($i <= 0){
-                        $holder .= ", ";
-                    }
-                    if($i == 1){
-                        $holder .= " and ";
-                    }
-                    if($i == 2){
-                        $holder .= " like this";
-                       }
-                } else if(count($names) >= 4){
-                    $holder .= $names[$i];
-                    if($i <= 0){
-                        $holder .= ", ";
-                    }
-                    if($i == 1){
-                        $holder .= " and ". (count($names) - 2). " others like this";
-                    }
-                    if($i == 1){
-                    break;
-                    }
+    function duplicateCount($text) {
 
-                }
-              
-    
-               }
-        
-        }else {
-            $holder .= "no one likes this";
+            $count = 0;
+            $duplicate = $text;
+
+
+        for($i = 0;$i < strlen($text);$i++){
+           
+       
+           for($j = 0;$j < strlen($text) ; $j++){
+         
+           }
+
+           
         }
-   
+
+      
+      
+      }
 
 
-     echo $holder;
-
+      duplicateCount("jer carlo catallo");
        
 
-    }
     
-
-
-    likes([ 'Alex', 'Jacob', 'Max','Michenne']);
     
+ 
     ?>
 
 
