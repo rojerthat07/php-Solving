@@ -8,27 +8,29 @@
 </head>
 <body>
     <?php
-    //Counting Duplicates
-    //Problem Link - https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/php
+    //Split Strings
+    //Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+    //Problem Link - https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/php
 
 
     function duplicateCount($text) {
 
             $count = 0;
+            $holder = "";
             $duplicate = $text;
-
-
-        for($i = 0;$i < strlen($text);$i++){
-           
-       
-           for($j = 0;$j < strlen($text) ; $j++){
-         
-           }
-
-           
+            $i = 0;
+        while($i < strlen($text)) {
+            
+        
+        if($text[$i] === $duplicate[$i]){
+            $holder .= $text[$i];
+            $count++;
+        }
+            $i++;
         }
 
-      
+      echo $holder;
+      echo $count;
       
       }
 
