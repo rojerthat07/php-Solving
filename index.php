@@ -13,32 +13,44 @@
     //Problem Link - https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/php
 
 
-    function duplicateCount($text) {
+    function solution($str) {
+        $holder = array();
+        $twoLetter = '';
 
-            $count = 0;
-            $holder = "";
-            $duplicate = $text;
-            $i = 0;
-        while($i < strlen($text)) {
-            
-        
-        if($text[$i] === $duplicate[$i]){
-            $holder .= $text[$i];
-            $count++;
-        }
-            $i++;
-        }
+            for($i = 1; $i < strlen($str) + 1 ;$i++){
+                //Check if it is even
+                if(strlen($str) % 2 == 0){
+                    //two sum up two strings
+                   $twoLetter .= $str[$i -1 ];
+                    //While $i is not equal to length 
+                    if($i !==  strlen($str) + 1){
+                        //To put comma if it is even to divide string into two
+                        if(($i % 2) === 0 ){
+                             array_push($holder, $twoLetter) ;
+                             $twoLetter = "";
+                         }
+                    }
+                }  
+                    //If it is odd
+                else{
+                    //two sum up two strings
+                     $twoLetter .= $str[$i -1 ];
+                        if($i !==  strlen($str) ){
+                        //To put comma if it is even to divide string into two
+                        if(($i % 2) === 0 ){
+                            array_push($holder, $twoLetter) ;
+                            $twoLetter = "";
+                         }
+                    }
+                    //Two push the last letter and To put _ in the end
+                    if($i === strlen($str)){
+                        array_push($holder, $twoLetter . '_') ;
+                  }
+                }
+            }
 
-      echo $holder;
-      echo $count;
       
-      }
-
-
-      duplicateCount("jer carlo catallo");
-       
-
-    
+            return $holder;
     
  
     ?>
