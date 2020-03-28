@@ -13,45 +13,33 @@
     //Problem Link - https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/php
 
 
-    function solution($str) {
-        $holder = array();
-        $twoLetter = '';
+ 
+    function reverseWords($str) {
 
-            for($i = 1; $i < strlen($str) + 1 ;$i++){
-                //Check if it is even
-                if(strlen($str) % 2 == 0){
-                    //two sum up two strings
-                   $twoLetter .= $str[$i -1 ];
-                    //While $i is not equal to length 
-                    if($i !==  strlen($str) + 1){
-                        //To put comma if it is even to divide string into two
-                        if(($i % 2) === 0 ){
-                             array_push($holder, $twoLetter) ;
-                             $twoLetter = "";
-                         }
-                    }
-                }  
-                    //If it is odd
-                else{
-                    //two sum up two strings
-                     $twoLetter .= $str[$i -1 ];
-                        if($i !==  strlen($str) ){
-                        //To put comma if it is even to divide string into two
-                        if(($i % 2) === 0 ){
-                            array_push($holder, $twoLetter) ;
-                            $twoLetter = "";
-                         }
-                    }
-                    //Two push the last letter and To put _ in the end
-                    if($i === strlen($str)){
-                        array_push($holder, $twoLetter . '_') ;
-                  }
-                }
+        $output = "";
+        $revWord = [];
+        $holder = "";
+
+
+        for($i= 0 ;$i<strlen($str);$i++){
+            $holder .= $str[$i];
+            if(($str[$i] == " " || $i == strlen($str) -1)){
+                array_push($revWord,$holder);
+                $holder ="";
             }
+        }
 
-      
-            return $holder;
+        for($i =  count($revWord) -1; $i>=0 ;$i--){
+            $output .= $revWord[$i];
+        }
+
+
+
+            echo strrev($output);
     
+      }
+
+      reverseWords("double  spaces")
  
     ?>
 
