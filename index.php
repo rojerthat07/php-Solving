@@ -8,38 +8,38 @@
 </head>
 <body>
     <?php
-    //Split Strings
-    //Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
-    //Problem Link - https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/php
+    //Exes and Ohs
+    //Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+    //Problem Link -https://www.codewars.com/kata/55908aad6620c066bc00002a/train/php
 
-
- 
-    function reverseWords($str) {
-
-        $output = "";
-        $revWord = [];
-        $holder = "";
-
-
-        for($i= 0 ;$i<strlen($str);$i++){
-            $holder .= $str[$i];
-            if(($str[$i] == " " || $i == strlen($str) -1)){
-                array_push($revWord,$holder);
-                $holder ="";
+    function XO($s) {
+        $xcount = 0;
+        $ocount = 0;
+        $bool = false;
+    
+        for($i =0; $i <strlen($s);$i++){
+            for($j=0;$j<strlen($s);$j++){
+                if(($s[$i] && (strtolower($s[$i]) == 'x' || strtolower($s[$i]) == 'o')) == $s[$j]){
+                    if(strtolower($s[$i]) == 'x'){
+                        $xcount++;
+                    }
+                    if(strtolower($s[$i]) == 'o'){
+                        $ocount++;
+                    }
+                }
             }
         }
+  
+        if($xcount === $ocount ){
+            $bool = true;
+        } 
+        
+        echo ($bool ? 'true' : 'false');
 
-        for($i =  count($revWord) -1; $i>=0 ;$i--){
-            $output .= $revWord[$i];
-        }
-
-
-
-            echo strrev($output);
-    
       }
 
-      reverseWords("double  spaces")
+
+      XO('')
  
     ?>
 
