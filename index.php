@@ -8,38 +8,51 @@
 </head>
 <body>
     <?php
-    //Exes and Ohs
-    //Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
-    //Problem Link -https://www.codewars.com/kata/55908aad6620c066bc00002a/train/php
+    //Mexican Wave
+    //	In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
+    //Problem Link -https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/train/php
 
-    function XO($s) {
-        $xcount = 0;
-        $ocount = 0;
-        $bool = false;
+    function wave($people){
+
+        $holder = "";
+        $final = "";
+        $output = [];
     
-        for($i =0; $i <strlen($s);$i++){
-            for($j=0;$j<strlen($s);$j++){
-                if(($s[$i] && (strtolower($s[$i]) == 'x' || strtolower($s[$i]) == 'o')) == $s[$j]){
-                    if(strtolower($s[$i]) == 'x'){
-                        $xcount++;
+
+        for($i =0;$i<strlen($people) ;$i++){
+            $holder = "";
+            $holder .= strtoupper($people[$i]);
+
+            if($people[$i] == " " ){
+                continue;
+            }else{
+                for($j = 0;$j<strlen($people) ;$j++){
+                    if($j != $i){
+                        $final .= $people[$j];
+                    }else{
+                        $final .= $holder;
                     }
-                    if(strtolower($s[$i]) == 'o'){
-                        $ocount++;
-                    }
+                    
                 }
             }
+           
+          
+           array_push($output, $final);
+           $final = "";
+           
         }
-  
-        if($xcount === $ocount ){
-            $bool = true;
-        } 
-        
-        echo ($bool ? 'true' : 'false');
+        if($people == null){
+             $output = [];
+        }
 
+
+    
+       return $output;
       }
 
 
-      XO('')
+
+    wave("hello  ") ;
  
     ?>
 
