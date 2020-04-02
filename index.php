@@ -15,8 +15,6 @@
         $alphabet = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
         $numberOfAlphabet = count($alphabet);
         $numberOfChecks = 0;
-        $checker = false;
-        $newString = "";
 
         for($i =0 ;$i < strlen($string);$i++){
             $numberOfAlphabet = count($alphabet);
