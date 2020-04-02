@@ -8,51 +8,32 @@
 </head>
 <body>
     <?php
-    //Mexican Wave
-    //	In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
-    //Problem Link -https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/train/php
+    //Detect Pangram
+   
+    //Problem Link -https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/php
+    function detect_pangram($string) { 
+        $alphabet = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+        $numberOfAlphabet = count($alphabet);
+        $numberOfChecks = 0;
+        $checker = false;
+        $newString = "";
 
-    function wave($people){
-
-        $holder = "";
-        $final = "";
-        $output = [];
-    
-
-        for($i =0;$i<strlen($people) ;$i++){
-            $holder = "";
-            $holder .= strtoupper($people[$i]);
-
-            if($people[$i] == " " ){
-                continue;
-            }else{
-                for($j = 0;$j<strlen($people) ;$j++){
-                    if($j != $i){
-                        $final .= $people[$j];
-                    }else{
-                        $final .= $holder;
-                    }
-                    
+        for($i =0 ;$i < strlen($string);$i++){
+            $numberOfAlphabet = count($alphabet);
+            for($j=0;$j < $numberOfAlphabet;$j++){
+                if( strtolower($string[$i]) == strtolower($alphabet[$j])){
+                    $numberOfChecks++;
+                    array_splice($alphabet,$j,1);
+                    break;
                 }
             }
-           
-          
-           array_push($output, $final);
-           $final = "";
-           
         }
-        if($people == null){
-             $output = [];
+     
+        return ($numberOfChecks >= 26 ? true : false);
+
         }
 
-
-    
-       return $output;
-      }
-
-
-
-    wave("hello  ") ;
+        detect_pangram("The quick brown fox jumps over the lazy dog.") ;
  
     ?>
 
